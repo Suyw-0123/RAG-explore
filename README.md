@@ -15,19 +15,3 @@ notebook/ # Jupyter Notebook 實驗與測試
 # 建立虛擬環境（可使用 conda 或 venv）
 pip install -r requirements.txt
 
-
----
-
-### 📄 `src/rag_pipeline.py`（空白模板）
-
-```python
-# src/rag_pipeline.py
-
-def run_rag_pipeline(query: str):
-    # TODO: 撰寫完整的 RAG pipeline
-    return "這是模擬回覆：您查詢的是 " + query
-
-
-if __name__ == "__main__":
-    response = run_rag_pipeline("什麼是向量資料庫？")
-    print(response)

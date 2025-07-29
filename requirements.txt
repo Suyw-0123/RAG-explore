@@ -6,3 +6,6 @@ transformers
 datasets
 sentence-transformers
 python-dotenv
+google-generativeai
+python-dotenv
+scikit-learn
