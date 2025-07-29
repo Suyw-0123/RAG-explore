@@ -34,6 +34,7 @@ pip install -r requirements.txt
 ```
 
 如需 Google Gemini API，請申請 API 金鑰並於 .env 檔案設定：
+Google API Key: https://aistudio.google.com/apikey
 ```
 GOOGLE_API_KEY=你的金鑰
 ```
@@ -75,11 +76,6 @@ docs = get_top_documents(query, k=5)
 print("檢索到的段落：", docs)
 ```
 
----
-
-## 🤝 貢獻方式
-
-歡迎 PR、issue 討論新功能、bug 或技術交流。
 
 ---
 
