@@ -1,0 +1,8 @@
+langchain
+faiss-cpu
+openai
+tqdm
+transformers
+datasets
+sentence-transformers
+python-dotenv
