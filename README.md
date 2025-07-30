@@ -58,6 +58,23 @@ GOOGLE_API_KEY=你的金鑰
 - 嵌入模型：預設 all-MiniLM-L6-v2（可自訂）
 - 向量庫：FAISS，支援高效相似度搜尋
 - RAG Pipeline：檢索 top-k 段落，組合 context，送入 LLM 生成答案
+- RAG 工作流程如下：
+
+   - 將知識文本（如 sample_docs.txt）放入 data 資料夾，並以空行分段。
+
+   - retriever.py 讀取文本，將每個段落用 SentenceTransformers 轉成向量。
+
+   - 用 FAISS 建立向量索引，支援高效相似度搜尋。
+
+   - 使用 get_top_documents(query, k)，根據使用者問題，檢索最相關的 k 個段落。
+
+   - 將檢索到的段落合併成 context_text，作為 LLM 的背景知識。
+
+   - 將 context_text 和 query 組成 prompt，送入 Gemini 1.5 flash 模型，生成答案。
+
+   - 顯示 LLM 回答，並可 debug 檢查 context_text 與 token 數量。
+
+這樣的流程能讓 LLM 針對自訂知識庫做精準問答，並可依需求調整檢索策略與背景資料量。
 
 ---
 
@@ -72,7 +89,7 @@ GOOGLE_API_KEY=你的金鑰
 ```python
 from retriever import get_top_documents
 query = "他們是如何打敗暗影霸王龍的？"
-docs = get_top_documents(query, k=5)
+docs = get_top_documents(query, k=8)
 print("檢索到的段落：", docs)
 ```
 
